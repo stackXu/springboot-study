@@ -1,0 +1,65 @@
+# 开发环境配置
+server:
+  # 服务端口
+  port: 80
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bfd?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    initialSize: 1
+    minIdle: 3
+    maxActive: 200
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/**/*Mapper.xml
+  typeAliasesPackage: com.mr.pojo
+
+redis:
+  task:
+    host: 127.0.0.1
+    port: 6379
+    pass: 87541092
+    db: 2
+    config:
+#      超时
+      timeout: 10000
+#      控制一个pool可分配多少个jedis实例
+      maxTotal: 100
+#      最大空闲数
+      maxIdle: 10
+#      最大等待时间
+      maxWaitMillis: 100000
+#      连接的最小空闲时间 默认1800000毫秒(30分钟)
+      minEvictableIdleTimeMillis: 300000
+#      每次释放连接的最大数目,默认3
+      numTestsPerEvictionRun: 1024
+#      逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+      timeBetweenEvictionRunsMillis: 30000
+#      是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+      testOnBorrow: true
+#      在空闲时检查有效性, 默认false
+      testWhileIdle: true
