@@ -1,2 +1,2 @@
-# springboot-myProject
-基于springboot的一个分模块的项目
+# springboot-study
+基于springboot的一个学习项目...
