@@ -63,3 +63,17 @@ redis:
       testOnBorrow: true
 #      在空闲时检查有效性, 默认false
       testWhileIdle: true
+
+dubbo:
+  application:
+    id: springboot-dubbo-test
+    name: springboot-dubbo-privider
+  registry:
+    id: myProject
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+    serialization: hessian2
