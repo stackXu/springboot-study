@@ -25,7 +25,8 @@ public class TestController {
 
     @Autowired
     private TestService testService;
-    @Reference
+
+    @Reference(loadbalance="roundrobin", retries=2,cluster="failsafe")
     private TestDubboService testDubboService;
 
     @RequestMapping(value = "/testdubbo/{name}", method = RequestMethod.GET)

@@ -66,8 +66,8 @@ redis:
 
 dubbo:
   application:
-    id: springboot-dubbo-test
-    name: springboot-dubbo-privider
+    id: springboot-dubbo-web
+    name: springboot-dubbo-web
   registry:
     id: myProject
     protocol: zookeeper
