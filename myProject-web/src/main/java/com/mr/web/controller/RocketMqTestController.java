@@ -38,7 +38,7 @@ public class RocketMqTestController {
     @ApiOperation(value = "测试rocketMq")
     public ResponseObject testDubbo(@PathVariable("name") String name, HttpServletRequest request, Model model) {
         rocketMQTemplate.convertAndSend("test-topic-1",name);
-        rocketMQTemplate.send("test-topic-1", MessageBuilder.withPayload(new OrderPaidEvent("aa,22",new BigDecimal("22"))).build());
+        ///rocketMQTemplate.send("test-topic-1", MessageBuilder.withPayload(new OrderPaidEvent("aa,22",11).build()));
         ResponseObject<Object> responseObject = new ResponseObject<>();
         responseObject.success(1);
         return responseObject;

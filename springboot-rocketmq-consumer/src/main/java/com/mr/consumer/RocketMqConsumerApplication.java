@@ -13,13 +13,13 @@ import java.time.Instant;
  * 启动程序
  */
 @SpringBootApplication
-public class DubboPrividerApplication {
+public class RocketMqConsumerApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(DubboPrividerApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(RocketMqConsumerApplication.class);
 
     public static void main(String[] args) {
         Instant inst1 = Instant.now();
-        SpringApplication.run(DubboPrividerApplication.class, args);
+        SpringApplication.run(RocketMqConsumerApplication.class, args);
         log.info("基于 Spring Boot {} ", SpringBootVersion.getVersion());
         log.info("启动成功!耗时:{}秒 ", Duration.between(inst1, Instant.now()).getSeconds());
     }

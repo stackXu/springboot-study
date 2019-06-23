@@ -1,6 +1,8 @@
 package com.mr.web.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mr.pojo.OrderPaidEvent;
+import com.mr.pojo.User;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,11 +31,13 @@ public class RocketMqTest {
     public void testRocketMq1() {
 
         String name = "aaa";
-        rocketMQTemplate.convertAndSend("test-topic-1", name);
-        rocketMQTemplate.send("test-topic-2", MessageBuilder.withPayload(new OrderPaidEvent("aa,22",new BigDecimal("22"))).build());
+//        rocketMQTemplate.convertAndSend("test-topic-1", name);
+        rocketMQTemplate.send("test-topic-2", MessageBuilder.withPayload(new OrderPaidEvent("ddddddddd",11)).build());
 
         System.err.println("发送成功...");
 
     }
+
+
 
 }
