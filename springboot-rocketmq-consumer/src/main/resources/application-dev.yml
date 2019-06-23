@@ -3,22 +3,6 @@ server:
   # 服务端口
   port: 8008
 
-dubbo:
-  application:
-    id: springboot-dubbo-1
-    name: springboot-dubbo-privider
-  registry:
-    id: myProject
-    protocol: zookeeper
-    address: 127.0.0.1:2181
-  protocol:
-    id: dubbo
-    name: dubbo
-    port: 20883
-    serialization: hessian2
-  scan:
-    base-packages: com.mr
-
 redis:
   task:
     host: 127.0.0.1
@@ -44,3 +28,8 @@ redis:
       testOnBorrow: true
 #      在空闲时检查有效性, 默认false
       testWhileIdle: true
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: my-group

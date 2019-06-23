@@ -1,12 +1,12 @@
 # 开发环境配置
 server:
   # 服务端口
-  port: 8008
+  port: 8010
 
 dubbo:
   application:
-    id: springboot-dubbo-1
-    name: springboot-dubbo-privider
+    id: springboot-dubbo-test2
+    name: springboot-dubbo-privider2
   registry:
     id: myProject
     protocol: zookeeper
@@ -14,10 +14,10 @@ dubbo:
   protocol:
     id: dubbo
     name: dubbo
-    port: 20883
+    port: 20881
     serialization: hessian2
   scan:
-    base-packages: com.mr
+    base-packages: cn.mr
 
 redis:
   task:

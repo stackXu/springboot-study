@@ -31,6 +31,9 @@
         <jedis-version>2.9.0</jedis-version>
         <alibaba.fastjson>1.2.58</alibaba.fastjson>
         <dubbo.version>2.7.1</dubbo.version>
+        <org.slf4j-version>1.7.25</org.slf4j-version>
+        <ch.qos.logback-version>1.2.3</ch.qos.logback-version>
+
     </properties>
 
 
@@ -43,6 +46,7 @@
         <module>myProject-domain</module>
         <module>springboot-dubbo-interface</module>
         <module>springboot-dubbo-privider</module>
+        <module>springboot-rocketmq-consumer</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -88,11 +92,35 @@
             <version>${hutool.version}</version>
         </dependency>
 
-        <!-- swagger2-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j-version}</version>
+            <scope>${libScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j-version}</version>
+            <scope>${libScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${org.slf4j-version}</version>
+            <scope>${libScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${ch.qos.logback-version}</version>
+            <scope>${libScope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${ch.qos.logback-version}</version>
+            <scope>${libScope}</scope>
         </dependency>
 
         <!-- springboot整合redis -->

@@ -26,17 +26,17 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-    @Reference(loadbalance="roundrobin", retries=2,cluster="failsafe")
-    private TestDubboService testDubboService;
-
-    @RequestMapping(value = "/testdubbo/{name}", method = RequestMethod.GET)
-    @ApiOperation(value = "测试dubbo")
-    public ResponseObject testDubbo(@PathVariable("name") String name, HttpServletRequest request, Model model) {
-        ResponseObject responseObject = new ResponseObject();
-        String s = testDubboService.testDubbo(name);
-        responseObject.success(s);
-        return responseObject;
-    }
+//    @Reference(loadbalance="roundrobin", retries=2,cluster="failsafe")
+//     private TestDubboService testDubboService;
+//
+//    @RequestMapping(value = "/testdubbo/{name}", method = RequestMethod.GET)
+//    @ApiOperation(value = "测试dubbo")
+//    public ResponseObject testDubbo(@PathVariable("name") String name, HttpServletRequest request, Model model) {
+//        ResponseObject responseObject = new ResponseObject();
+//        String s = testDubboService.testDubbo(name);
+//        responseObject.success(s);
+//        return responseObject;
+//    }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @MyPermission(needRole = MyPermission.Role.B )
