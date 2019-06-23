@@ -33,3 +33,8 @@ rocketmq:
   name-server: 127.0.0.1:9876
   producer:
     group: my-group
+    send-message-timeout: 300000
+    compress-message-body-threshold: 4096
+    max-message-size: 4194304
+    retry-next-server: true
+    retry-times-when-send-failed: 2

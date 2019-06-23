@@ -5,7 +5,6 @@ import com.mr.pojo.User;
 
 /**
  * @ClassName MainTest
- * @Description todo
  * @Author stack
  * @Version 1.0
  * @since 2019/6/23 20:10

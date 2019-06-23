@@ -2,7 +2,6 @@ package com.mr.zk.test;
 
 /**
  * @ClassName YituQuestion
- * @Description todo
  * @Author stack
  * @Version 1.0
  * @since 2019/6/21 17:02

@@ -1,23 +1,7 @@
 # 开发环境配置
 server:
   # 服务端口
-  port: 80
-
-dubbo:
-  application:
-    id: springboot-dubbo-3
-    name: springboot-dubbo-privider
-  registry:
-    id: myProject
-    protocol: zookeeper
-    address: 127.0.0.1:2181
-  protocol:
-    id: dubbo
-    name: dubbo
-    port: 20880
-    serialization: hessian2
-  scan:
-    base-packages: cn.mr
+  port: 8008
 
 redis:
   task:
@@ -44,3 +28,13 @@ redis:
       testOnBorrow: true
 #      在空闲时检查有效性, 默认false
       testWhileIdle: true
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: my-group
+    send-message-timeout: 300000
+    compress-message-body-threshold: 4096
+    max-message-size: 4194304
+    retry-next-server: true
+    retry-times-when-send-failed: 2

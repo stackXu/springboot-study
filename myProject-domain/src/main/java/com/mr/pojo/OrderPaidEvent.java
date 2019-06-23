@@ -35,6 +35,4 @@ public class OrderPaidEvent implements Serializable {
         this.paidMoney = paidMoney;
     }
 
-
-
 }
