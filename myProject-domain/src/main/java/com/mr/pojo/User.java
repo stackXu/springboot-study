@@ -10,7 +10,6 @@ import lombok.Data;
  * @since 2019/6/23 19:56
  */
 @Data
-@AllArgsConstructor
 public class User {
 
     private String name;
