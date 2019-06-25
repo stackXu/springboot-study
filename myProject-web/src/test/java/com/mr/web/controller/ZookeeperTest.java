@@ -1,13 +1,13 @@
 package com.mr.web.controller;
 
 import com.mr.web.zookeeper.DistributedLock;
+import com.mr.web.zookeeper.ZkIdGenerator;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.BackgroundCallback;
 import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.BoundedExponentialBackoffRetry;
-import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,14 +22,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class ZookeeperTest extends BaseTest {
 
-    @Test
-    public void testCuratorFrTest1() throws Exception{
+    public void testCuratorFrTest1() throws Exception {
         String lockName = "/aaa";
-        String root="/root";
+        String root = "/root";
         CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("localhost:2181", new BoundedExponentialBackoffRetry(3, 1000, 2000));
         ExecutorService executorService = Executors.newCachedThreadPool();
         curatorFramework.start();
-        InterProcessMutex  interProcessMutex = new InterProcessMutex(curatorFramework, root.concat(lockName));
+        InterProcessMutex interProcessMutex = new InterProcessMutex(curatorFramework, root.concat(lockName));
         int count = 0;
         while (!interProcessMutex.acquire(1, TimeUnit.SECONDS)) {
             count++;
@@ -48,15 +47,15 @@ public class ZookeeperTest extends BaseTest {
 
     }
 
-    public static void main(String[] args) throws Exception {
-        DistributedLock distributedLock = new DistributedLock("/aaa");
+    public void testRunDis() throws Exception {
+        DistributedLock distributedLock = new DistributedLock("aaa");
 
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
-                System.out.println(Thread.currentThread().getName()+"启动");
+                System.out.println(Thread.currentThread().getName() + "启动");
                 while (!distributedLock.tryLock()) {
                     try {
-                        System.out.println(Thread.currentThread().getName()+"尝试获取锁");
+                        System.out.println(Thread.currentThread().getName() + "尝试获取锁");
                         TimeUnit.SECONDS.sleep(3);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -64,14 +63,31 @@ public class ZookeeperTest extends BaseTest {
                 }
 
                 try {
-                    System.out.println(Thread.currentThread().getName()+"获得了锁,睡眠");
-                    TimeUnit.SECONDS.sleep(30);
+                    System.out.println(Thread.currentThread().getName() + "获得了锁,睡眠");
+                    TimeUnit.SECONDS.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName()+"释放锁");
+                System.out.println(Thread.currentThread().getName() + "释放锁");
                 distributedLock.releaseLock();
             }).start();
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+
+//        for (int i = 0; i < 1000; i++) {
+//            DistributedIdGeneraterService distributedIdGeneraterService = new DistributedIdGeneraterService();
+//            String s = distributedIdGeneraterService.generateId();
+//            System.out.println(s);
+//        }
+
+
+        ZkIdGenerator zkIdGenerator = new ZkIdGenerator("localhost:2181", "/id-gen");
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(zkIdGenerator.next());
         }
 
     }

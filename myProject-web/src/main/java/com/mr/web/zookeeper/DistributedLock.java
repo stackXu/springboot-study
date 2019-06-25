@@ -52,7 +52,7 @@ public class DistributedLock {
     public boolean tryLock() {
         int count = 0;
         try {
-            while (!interProcessMutex.acquire(1, TimeUnit.SECONDS)) {
+            while (!interProcessMutex.acquire(100, TimeUnit.SECONDS)) {
                 count++;
                 if (count > 3) {
                     TimeUnit.SECONDS.sleep(1);
