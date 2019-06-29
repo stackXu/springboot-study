@@ -2,8 +2,6 @@ package com.mr;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootVersion;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,13 +12,11 @@ import java.time.Instant;
 
 /**
  * 启动程序
- *
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan("com.mr.mapper")
+@Slf4j
 public class MyProjectApplication {
-
-    private static final Logger log = LoggerFactory.getLogger(MyProjectApplication.class);
 
     public static void main(String[] args) {
         Instant inst1 = Instant.now();

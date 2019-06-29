@@ -27,7 +27,7 @@ public class BRoleControllerTest {
 
     @Test
     public void test1() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             stringRedisTemplate.opsForValue().set("token:" + UUID.randomUUID().toString(), UUID.randomUUID().toString());
         }
 
