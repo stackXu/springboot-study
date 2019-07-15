@@ -33,6 +33,9 @@ public class MyLimitAspect {
 
     private static Map<String, RateLimiter> url = new ConcurrentHashMap<>();
 
+    private static RateLimiter rateLimiter = RateLimiter.create(1000);
+
+
     @Pointcut("@annotation(com.mr.web.annotation.MyLimit)")
     public void logPointCut() {
     }
@@ -59,8 +62,10 @@ public class MyLimitAspect {
                     throw new MyprojectException(ResultCode.SYSTEM_ERROR.getError());
                 }
             } else {
-                RateLimiter r = RateLimiter.create(v);
-                url.put(requestURL, r);
+//                RateLimiter r = RateLimiter.create(v);
+                rateLimiter = RateLimiter.create(v);
+                url.put(requestURL, rateLimiter);
+//                url.put(requestURL, r);
             }
         }
     }

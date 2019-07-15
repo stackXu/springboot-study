@@ -26,7 +26,7 @@ public class MyLimitTestController {
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     @MyLimit(permitsPerSecond = 1)
-    @ApiOperation(value = "测试重载getUserId")
+    @ApiOperation(value = "限流注解测试")
     public ResponseObject test1(HttpServletRequest request) {
         ResponseObject responseObject = new ResponseObject();
         responseObject.success("ok");
@@ -34,9 +34,18 @@ public class MyLimitTestController {
     }
 
     @RequestMapping(value = "/test2", method = RequestMethod.GET)
-    @MyLimit()
-    @ApiOperation(value = "测试重载getUserId")
+    @MyLimit(permitsPerSecond = 2)
+    @ApiOperation(value = "限流注解测试")
     public ResponseObject test2(HttpServletRequest request) {
+        ResponseObject responseObject = new ResponseObject();
+        responseObject.success("ok");
+        return responseObject;
+    }
+
+    @RequestMapping(value = "/test3", method = RequestMethod.GET)
+    @MyLimit(permitsPerSecond = 3)
+    @ApiOperation(value = "限流注解测试")
+    public ResponseObject test3(HttpServletRequest request) {
         ResponseObject responseObject = new ResponseObject();
         responseObject.success("ok");
         return responseObject;
