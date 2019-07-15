@@ -47,6 +47,7 @@
         <module>springboot-dubbo-interface</module>
         <module>springboot-dubbo-privider</module>
         <module>springboot-rocketmq-consumer</module>
+        <module>springboot-rocketmq-producer</module>
     </modules>
 
     <packaging>pom</packaging>

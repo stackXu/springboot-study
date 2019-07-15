@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
  * <p>
  * 创建人：ternence
  */
-@Component
+//@Component
 public class DistributedIdGeneraterService {
 
     private static CuratorFramework curatorFrameworkClient;

@@ -27,7 +27,7 @@ import java.math.BigDecimal;
  * @Version 1.0
  * @since 2019/6/23 17:03
  */
-@RestController
+//@RestController
 @Slf4j
 public class RocketMqTestController {
 

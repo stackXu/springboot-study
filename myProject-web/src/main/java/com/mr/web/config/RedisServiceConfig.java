@@ -8,7 +8,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-//@Configuration
+@Configuration
 public class RedisServiceConfig {
 
     @Value("${redis.task.host}")

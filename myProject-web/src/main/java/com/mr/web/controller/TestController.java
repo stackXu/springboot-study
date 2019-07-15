@@ -1,13 +1,11 @@
 package com.mr.web.controller;
 
 import com.mr.common.ResponseObject;
-import com.mr.interfaces.test.TestDubboService;
 import com.mr.service.TestService;
 import com.mr.web.annotation.MyPermission;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,18 +23,6 @@ public class TestController {
 
     @Autowired
     private TestService testService;
-
-//    @Reference(loadbalance="roundrobin", retries=2,cluster="failsafe")
-//     private TestDubboService testDubboService;
-//
-//    @RequestMapping(value = "/testdubbo/{name}", method = RequestMethod.GET)
-//    @ApiOperation(value = "测试dubbo")
-//    public ResponseObject testDubbo(@PathVariable("name") String name, HttpServletRequest request, Model model) {
-//        ResponseObject responseObject = new ResponseObject();
-//        String s = testDubboService.testDubbo(name);
-//        responseObject.success(s);
-//        return responseObject;
-//    }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @MyPermission(needRole = MyPermission.Role.B )

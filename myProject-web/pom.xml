@@ -60,11 +60,27 @@
             <version>${myProject.version}</version>
         </dependency>
 
-        <dependency>
+        <!--不测试dubbo的时候注释,同时将配置文件里面给注释即可-->
+      <!--  <dependency>
             <groupId>com.mr</groupId>
             <artifactId>springboot-dubbo-interface</artifactId>
             <version>${myProject.version}</version>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.13.0</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>2.13.0</version>
+        </dependency>
+
 
         <!--rocketMq依赖-->
         <dependency>

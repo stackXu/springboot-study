@@ -30,10 +30,12 @@ spring:
     filters: stat,wall,slf4j
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-#  redis:
-#    host: 127.0.0.1
-#    port: 6379
-#    timeout: 10000
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 10000
+    database: 0
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 mybatis:
@@ -43,47 +45,47 @@ mybatis:
   typeAliasesPackage: com.mr.pojo
 
 
-#redis:
-#  task:
-#    host: 127.0.0.1
-#    port: 6379
-#    pass: 87541092
-#    db: 2
-#    config:
-##      超时
-#      timeout: 10000
-##      控制一个pool可分配多少个jedis实例
-#      maxTotal: 100
-##      最大空闲数
-#      maxIdle: 10
-##      最大等待时间
-#      maxWaitMillis: 100000
-##      连接的最小空闲时间 默认1800000毫秒(30分钟)
-#      minEvictableIdleTimeMillis: 300000
-##      每次释放连接的最大数目,默认3
-#      numTestsPerEvictionRun: 1024
-##      逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
-#      timeBetweenEvictionRunsMillis: 30000
-##      是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
-#      testOnBorrow: true
-##      在空闲时检查有效性, 默认false
-#      testWhileIdle: true
+redis:
+  task:
+    host: 127.0.0.1
+    port: 6379
+    pass: 87541092
+    db: 2
+    config:
+#      超时
+      timeout: 10000
+#      控制一个pool可分配多少个jedis实例
+      maxTotal: 100
+#      最大空闲数
+      maxIdle: 10
+#      最大等待时间
+      maxWaitMillis: 100000
+#      连接的最小空闲时间 默认1800000毫秒(30分钟)
+      minEvictableIdleTimeMillis: 300000
+#      每次释放连接的最大数目,默认3
+      numTestsPerEvictionRun: 1024
+#      逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+      timeBetweenEvictionRunsMillis: 30000
+#      是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+      testOnBorrow: true
+#      在空闲时检查有效性, 默认false
+      testWhileIdle: true
 
-dubbo:
-  application:
-    id: springboot-dubbo-web
-    name: springboot-dubbo-web
-  registry:
-    id: myProject
-    protocol: zookeeper
-    address: 127.0.0.1:2181
-  protocol:
-    id: dubbo
-    name: dubbo
-    port: 20880
-    serialization: hessian2
+#dubbo:
+#  application:
+#    id: springboot-dubbo-web
+#    name: springboot-dubbo-web
+#  registry:
+#    id: myProject
+#    protocol: zookeeper
+#    address: 127.0.0.1:2181
+#  protocol:
+#    id: dubbo
+#    name: dubbo
+#    port: 20880
+#    serialization: hessian2
 
-rocketmq:
-  name-server: 127.0.0.1:9876
-  producer:
-    group: my-group
+#rocketmq:
+#  name-server: 127.0.0.1:9876
+#  producer:
+#    group: my-group

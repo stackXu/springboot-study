@@ -1,3 +1,4 @@
+env: dev
 # 开发环境配置
 server:
   servlet:
