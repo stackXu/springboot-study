@@ -29,7 +29,7 @@
         <lombok.version>1.18.4</lombok.version>
         <hutool.version>4.4.2</hutool.version>
         <jedis-version>2.9.0</jedis-version>
-        <alibaba.fastjson>1.2.58</alibaba.fastjson>
+        <alibaba.fastjson>1.2.83</alibaba.fastjson>
         <dubbo.version>2.7.1</dubbo.version>
         <org.slf4j-version>1.7.25</org.slf4j-version>
         <ch.qos.logback-version>1.2.3</ch.qos.logback-version>
